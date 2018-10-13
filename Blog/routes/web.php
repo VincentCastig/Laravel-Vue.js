@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/posts', function () {
     $posts = DB::table('posts')->get();
-    return view('welcome', compact('posts'));
+    return view('posts.index', compact('posts'));
+});
+
+Route::get('/posts/{id}', function ($id) {
+    
+    $posts = DB::table('posts')->find($id);
+    return view('posts.show', compact('posts'));
 });

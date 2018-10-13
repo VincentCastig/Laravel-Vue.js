@@ -13,9 +13,7 @@
         
         <body>
             <ul>
-                @foreach ($posts as $item)
-                  <li>{{$item->body}}</li>
-                @endforeach
+            
             </ul>
         </body>
    
