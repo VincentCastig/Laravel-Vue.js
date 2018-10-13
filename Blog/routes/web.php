@@ -1,23 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Post;
 
-Route::get('/posts', function () {
-    $posts = DB::table('posts')->get();
-    return view('posts.index', compact('posts'));
-});
+Route::get('/posts', 'PostsController@index');
 
 Route::get('/post/{id}', function ($id) {
-    
-    $posts = DB::table('posts')->find($id);
+    //$posts = DB::table('posts')->find($id);
+    $posts = Post::find($id);
     return view('posts.show', compact('posts'));
 });
