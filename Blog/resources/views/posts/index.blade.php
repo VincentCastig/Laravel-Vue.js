@@ -10,7 +10,9 @@
         <body>
                 <ul>
                     @foreach ($posts as $item)
-                      <li>{{$item->body}}</li>
+                      <li>
+                          <a href="/post/{{$item->id}}">{{$item->body}}</a>
+                        </li>
                     @endforeach
                 </ul>
         </body>

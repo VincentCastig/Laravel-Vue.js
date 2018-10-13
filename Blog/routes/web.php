@@ -16,7 +16,7 @@ Route::get('/posts', function () {
     return view('posts.index', compact('posts'));
 });
 
-Route::get('/posts/{id}', function ($id) {
+Route::get('/post/{id}', function ($id) {
     
     $posts = DB::table('posts')->find($id);
     return view('posts.show', compact('posts'));
