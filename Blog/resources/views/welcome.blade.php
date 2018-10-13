@@ -12,7 +12,11 @@
 
         
         <body>
-            Hello <?php echo $name; ?>
+            <ul>
+                @foreach ($posts as $item)
+                  <li>{{$item->body}}</li>
+                @endforeach
+            </ul>
         </body>
    
 </html>

@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome', [ 'name' => 'Vince']);
+    $posts = DB::table('posts')->get();
+    return view('welcome', compact('posts'));
 });
