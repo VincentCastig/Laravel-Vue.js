@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{$posts->body}}</h1>
+    <h1>{{$id->body}}</h1>
 </body>
 </html>
