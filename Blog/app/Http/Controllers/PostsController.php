@@ -11,15 +11,16 @@ class PostsController extends Controller
     public function Index()
     {
         # code...
-        $posts = Post::get();
+        $posts = Post::latest()->get();
+
         return view('posts.index', compact('posts'));
     }
 
-    public function Show(Post $id)
+    public function Show(Post $post)
     {
         # code...
         
-        return view('posts.show', compact('id'));
+        return view('posts.show', compact('post'));
     }
 
     public function create()
@@ -30,6 +31,10 @@ class PostsController extends Controller
     }
     public function store()
     {
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
         #create a new post
         // $post = new Post;
         // $post->title = request('title');

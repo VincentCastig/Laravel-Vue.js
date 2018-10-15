@@ -1,5 +1,9 @@
 @extends('layouts/master')
 
 @section('content')
-    <h1>{{$id->body}}</h1>
+    <div class="col-sm-8 blog-main">
+        <h1>{{$post->title}}</h1>
+
+        {{$post->body}}
+    </div>
 @endsection
