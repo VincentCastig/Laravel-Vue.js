@@ -22,4 +22,10 @@ class Post extends Model
         //     'post_id' => $this->id
         // ]);
     }
+
+    public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class);
+    }
 }

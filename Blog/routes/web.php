@@ -1,7 +1,7 @@
 <?php
 
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 
 Route::get('/posts/create', 'PostsController@create');
 
@@ -13,6 +13,14 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 
 
-Auth::routes();
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login', 'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+// Route::get('/home', 'HomeController@index')->name('home');

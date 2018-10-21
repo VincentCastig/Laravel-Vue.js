@@ -7,7 +7,12 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    //
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function Index()
     {
         # code...
@@ -40,7 +45,16 @@ class PostsController extends Controller
         // $post->title = request('title');
         // $post->body = request('body');
 
-        Post::create(request(['title', 'body']));
+        // Post::create(request(['title', 'body', 'user_id']));
+        // Post::create([
+        //     'title' => request('title'), 
+        //     'body' => request('body'), 
+        //     'user_id' => auth()->id()
+        // ]);
+
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
         #save post to database
         //$post->save();
 
